@@ -1,3 +1,4 @@
+// src/services/marsRoverService.js
 const axios = require('axios');
 
 const NASA_API_KEY = process.env.NASA_API_KEY || 'UpVjaaDQiTGaDnFU91bhptKWgIEPltOwkspzVlyY';
@@ -39,6 +40,8 @@ exports.fetchMarsRoverPhotosByDate = async (earth_date, rover = 'curiosity', pag
     throw new Error('Error fetching Mars Rover Photos by Earth Date');
   }
 };
+
+
 
 
 
