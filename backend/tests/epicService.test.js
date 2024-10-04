@@ -1,4 +1,3 @@
-// tests/epicService.test.js
 const epicService = require('../services/epicService');
 const axios = require('axios');
 
