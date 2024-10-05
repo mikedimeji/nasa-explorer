@@ -1,4 +1,3 @@
-// epicController.js
 const epicService = require('../services/epicService');
 
 exports.getEpicImages = async (req, res) => {
