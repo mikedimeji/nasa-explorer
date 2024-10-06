@@ -1,9 +1,9 @@
 require('dotenv').config(); 
+const cors = require('cors');
 const express = require('express');
 const marsRoverRoutes = require('./routes/marsRoverRoutes');
 const epicRoutes = require('./routes/epicRoutes'); // Import the epic routes
 const axios = require('axios');  // For making HTTP requests
-const cors = require('cors');
 
 const app = express();
 
