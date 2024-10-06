@@ -6,13 +6,17 @@ const port = process.env.PORT || 10000;
 
 // CORS configuration
 const corsOptions = {
-  origin: ['https://nasa-explorer-1.onrender.com'], // Allowed origin
-  methods: 'GET',
-  credentials: true,
+  origin: (origin, callback) => {
+    callback(null, true);
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  allowedHeaders: ["Access-Control-Allow-Origin", "Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
+  credentials: true
 };
 
 // Middleware
-app.use(cors(corsOptions)); // Use CORS options
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(express.json()); // Middleware to parse JSON requests
 
 // Start server
