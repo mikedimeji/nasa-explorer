@@ -1,6 +1,4 @@
-// src/services/marsRoverService.js
 const axios = require('axios');
-
 const NASA_API_KEY = process.env.NASA_API_KEY || 'UpVjaaDQiTGaDnFU91bhptKWgIEPltOwkspzVlyY';
 
 exports.fetchMarsRoverPhotosBySol = async (sol, rover = 'curiosity', page = 1, limit = 10) => {

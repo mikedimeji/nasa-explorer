@@ -1,8 +1,8 @@
+require('dotenv').config(); 
 const express = require('express');
 const marsRoverRoutes = require('./routes/marsRoverRoutes');
 const epicRoutes = require('./routes/epicRoutes'); // Import the epic routes
 const axios = require('axios');  // For making HTTP requests
-require('dotenv').config(); // For loading NASA API KEY and other env variables
 const cors = require('cors');
 
 const app = express();

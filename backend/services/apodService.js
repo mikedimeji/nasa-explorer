@@ -1,10 +1,9 @@
 const axios = require('axios');
-
-// NASA API Key (get it from https://api.nasa.gov/)
-const NASA_API_KEY = process.env.NASA_API_KEY || 'UpVjaaDQiTGaDnFU91bhptKWgIEPltOwkspzVlyY';
+// NASA API Key (https://api.nasa.gov/)
+const NASA_API_KEY = process.env.NASA_API_KEY;
 
 /**
- * Fetch APOD (Astronomy Picture of the Day) data from NASA
+ * Fetch APOD data from NASA
  */
 const fetchApodData = async () => {
     try {
