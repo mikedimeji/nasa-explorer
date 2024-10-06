@@ -6,16 +6,14 @@ const port = process.env.PORT || 10000;
 
 // CORS configuration
 const corsOptions = {
-  origin: (origin, callback) => {
-    callback(null, true);
-  },
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  allowedHeaders: ["Access-Control-Allow-Origin", "Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
-  credentials: true
+  origin: '*', // Allow all origins (for debugging)
+  methods: ["GET", "POST"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"]
 };
 
+
 // Middleware
-app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 app.use(express.json()); // Middleware to parse JSON requests
 
