@@ -1,0 +1,61 @@
+.mars-rover-photos {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .mars-rover-photos label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .mars-rover-photos input,
+  .mars-rover-photos select {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .carousel-container {
+    margin-top: 20px;
+  }
+  
+  .carousel img {
+    border-radius: 5px;
+  }
+  
+  .carousel .legend {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .apod-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .apod-container img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .apod-container p {
+    font-size: 18px;
+  }
+  
