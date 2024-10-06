@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react'; // Added useCallback
 import { getMarsRoverPhotos } from '../../services/nasaService';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';  // Import carousel CSS
@@ -13,7 +13,8 @@ const MarsRoverPhotos = () => {
   const [page, setPage] = useState(1);  // Pagination
   const [limit] = useState(10);  // Limit per page
 
-  const fetchPhotos = async () => {
+  // Use useCallback to memoize fetchPhotos
+  const fetchPhotos = useCallback(async () => {
     setLoading(true);
     try {
       const data = await getMarsRoverPhotos({
@@ -28,13 +29,13 @@ const MarsRoverPhotos = () => {
       console.error('Error:', error);
     }
     setLoading(false);
-  };
+  }, [earthDate, sol, rover, page, limit]); // Added dependencies for useCallback
 
   useEffect(() => {
     if (sol || earthDate) {
       fetchPhotos();
     }
-  }, [sol, earthDate, rover, page]);
+  }, [fetchPhotos]); // Include fetchPhotos in dependencies
 
   // Reset Sol and Photos when Earth Date changes
   const handleSolChange = (e) => {
@@ -149,3 +150,4 @@ const MarsRoverPhotos = () => {
 };
 
 export default MarsRoverPhotos;
+

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../../styles/apod.css';
 
 const Apod = () => {
@@ -6,16 +7,24 @@ const Apod = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/apod')
-      .then((response) => response.json())
-      .then((data) => {
-        setApod(data);
-        setLoading(false);
-      })
-      .catch((error) => {
+    const fetchApod = async () => {
+      try {
+        // Determine API URL based on environment
+        const API_URL =
+          process.env.NODE_ENV === 'production'
+            ? `${process.env.REACT_APP_BACKEND_URL}/api/apod` // Backend URL from Render
+            : '/api/apod'; // Local development URL
+
+        const response = await axios.get(API_URL);
+        setApod(response.data);
+      } catch (error) {
         console.error('Error fetching APOD:', error);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchApod();
   }, []);
 
   return (
@@ -25,12 +34,12 @@ const Apod = () => {
       ) : (
         apod && (
           <div>
-            <h1 className="apod-title">NASA PICTURE OF THE DAY</h1> {/* Static Title */}
+            <h1 className="apod-title">NASA PICTURE OF THE DAY</h1>
             <div className="apod-photo-card">
-              <h2 className="apod-header">{apod.title}</h2> {/* Title for the image */}
+              <h2 className="apod-header">{apod.title}</h2>
               <img src={apod.url} alt={apod.title} />
               <div className="apod-overlay">
-                <p>{apod.explanation}</p> {/* Show explanation on hover */}
+                <p>{apod.explanation}</p>
               </div>
             </div>
           </div>
@@ -41,6 +50,7 @@ const Apod = () => {
 };
 
 export default Apod;
+
 
 
 

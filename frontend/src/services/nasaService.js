@@ -1,7 +1,9 @@
-
 import axios from 'axios';
 
-const API_URL = '/api/mars-rover-photos';
+const API_URL =
+  process.env.NODE_ENV === 'production'
+    ? `${process.env.REACT_APP_BACKEND_URL}/api/mars-rover-photos`  // Backend URL from Render
+    : '/api/mars-rover-photos';  // Local development URL
 
 export const getMarsRoverPhotos = async ({ sol, earth_date, rover, page = 1, limit = 10 }) => {
   try {
@@ -19,6 +21,7 @@ export const getMarsRoverPhotos = async ({ sol, earth_date, rover, page = 1, lim
     throw new Error('Error fetching Mars Rover Photos');
   }
 };
+
 
 
 
