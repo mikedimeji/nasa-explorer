@@ -44,7 +44,7 @@ function App() {
           
           {currentView === 'apod' && <Apod />}
           {currentView === 'mars' && <MarsRoverPhotos />}
-          {currentView === 'epic' && <EpicImages />} {/* Render EPIC component */}
+          {currentView === 'epic' && <EpicImages />} 
         </>
       )}
     </div>
