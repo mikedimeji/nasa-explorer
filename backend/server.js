@@ -6,7 +6,7 @@ const port = process.env.PORT || 10000;
 
 // CORS configuration
 const corsOptions = {
-  origin: '*', // Allow all origins (for debugging)
+  origin: '*', 
   methods: ["GET", "POST"],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"]

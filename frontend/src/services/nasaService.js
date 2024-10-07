@@ -2,8 +2,9 @@ import axios from 'axios';
 
 const API_URL =
   process.env.NODE_ENV === 'production'
-    ? `${process.env.REACT_APP_BACKEND_URL}/api/mars-rover-photos`  // Backend URL from Render
-    : '/api/mars-rover-photos';  // Local development URL
+    ? `https://cors-anywhere.herokuapp.com/${process.env.REACT_APP_BACKEND_URL}/api/mars-rover-photos`  // Using CORS proxy in production
+    : 'https://cors-anywhere.herokuapp.com/http://localhost:10000/api/mars-rover-photos';  // Using CORS proxy in local development
+
 
     
 console.log('Backend URL:', process.env.REACT_APP_BACKEND_URL);

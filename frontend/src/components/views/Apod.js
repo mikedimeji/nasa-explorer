@@ -9,12 +9,12 @@ const Apod = () => {
   useEffect(() => {
     const fetchApod = async () => {
       try {
-        // Determine API URL based on environment
+        // Determine API URL based on environment with CORS proxy
         const API_URL =
           process.env.NODE_ENV === 'production'
-            ? `${process.env.REACT_APP_BACKEND_URL}/api/apod` // Backend URL from Render
-            : '/api/apod'; // Local development URL
-
+            ? `https://cors-anywhere.herokuapp.com/${process.env.REACT_APP_BACKEND_URL}/api/apod` // Using CORS proxy in production
+            : 'https://cors-anywhere.herokuapp.com/http://localhost:10000/api/apod'; // Using CORS proxy in local development
+  
         const response = await axios.get(API_URL);
         setApod(response.data);
       } catch (error) {
@@ -23,7 +23,7 @@ const Apod = () => {
         setLoading(false);
       }
     };
-
+  
     fetchApod();
   }, []);
 
