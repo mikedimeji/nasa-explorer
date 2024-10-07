@@ -6,9 +6,8 @@ const port = process.env.PORT || 10000;
 
 // CORS configuration
 const corsOptions = {
-  origin: '*', 
-  methods: ["GET", "POST"],
-  credentials: false,
+  origin: '*', // Allow all origins
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Include all HTTP methods your API uses
   allowedHeaders: ["Content-Type", "Authorization"]
 };
 
